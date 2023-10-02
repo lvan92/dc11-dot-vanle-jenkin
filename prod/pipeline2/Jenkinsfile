@@ -10,19 +10,7 @@ pipeline{
             steps {
                 withAWS(credentials: 'aws_credentials', region:'us-east-1') {
                     sh 'terraform init -reconfigure'
-                }
-            }
-        }
-        stage('Terraform Plan') {
-            steps {
-                withAWS(credentials: 'aws_credentials', region:'us-east-1') {
-                    sh 'terraform plan'
-                }
-            }
-        }
-        stage('Terraform apply') {
-            steps {
-                withAWS(credentials: 'aws_credentials', region:'us-east-1') {
+                    echo 'Next step'
                     sh 'terraform apply --auto-approve'
                 }
             }
