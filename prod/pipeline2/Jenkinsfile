@@ -8,20 +8,23 @@ pipeline{
         }
         stage('Terraform Init') {
             steps {
-                withAWS(credentials: 'aws_credentials', region:'us-east-1')
-                sh 'terraform init'
+                withAWS(credentials: 'aws_credentials', region:'us-east-1') {
+                    sh 'terraform init'
+                }
             }
         }
         stage('Terraform Plan') {
             steps {
-                withAWS(credentials: 'aws_credentials', region:'us-east-1')
-                sh 'terraform plan'
+                withAWS(credentials: 'aws_credentials', region:'us-east-1') {
+                    sh 'terraform plan'
+                }
             }
         }
         stage('Terraform apply') {
             steps {
-                withAWS(credentials: 'aws_credentials', region:'us-east-1')
-                sh 'terraform apply --auto-approve'
+                withAWS(credentials: 'aws_credentials', region:'us-east-1') {
+                    sh 'terraform apply --auto-approve'
+                }
             }
         }
     }
