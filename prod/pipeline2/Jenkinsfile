@@ -8,18 +8,19 @@ pipeline{
         }
         stage('Terraform Init') {
             steps {
+                withAWS(credentials: 'aws_credentials', region:'us-east-1')
                 sh 'terraform init'
-                echo '[Debug] Running terraform init successfully~'
             }
         }
         stage('Terraform Plan') {
             steps {
+                withAWS(credentials: 'aws_credentials', region:'us-east-1')
                 sh 'terraform plan'
-                echo '[Debug] Running terraform plan successfully~'
             }
         }
         stage('Terraform apply') {
             steps {
+                withAWS(credentials: 'aws_credentials', region:'us-east-1')
                 sh 'terraform apply --auto-approve'
             }
         }
