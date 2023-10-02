@@ -9,7 +9,7 @@ pipeline{
         stage('Terraform Init') {
             steps {
                 withAWS(credentials: 'aws_credentials', region:'us-east-1') {
-                    sh 'terraform init'
+                    sh 'terraform init -reconfigure'
                 }
             }
         }
