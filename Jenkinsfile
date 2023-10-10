@@ -3,6 +3,7 @@ pipeline{
     triggers {
         GenericTrigger(
             genericVariables: [[key: 'ref', value: '$.ref']],
+            token: 'abc123',
             causeString: 'Triggered on $ref',
             regexpFilterExpression: '',
             regexpFilterText: '',
