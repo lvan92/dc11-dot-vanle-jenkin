@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Terraform Init') {
             steps {
-                withAWS(credentials: 'aws_credentials', region:'us-east-1') {
+                withAWS(credentials: '97bdd615-545a-4323-aec6-63db7926f133', region:'us-east-1') {
                     // sh 'terraform init -reconfigure'
                     echo 'Test step'
                     // sh 'terraform apply --auto-approve'
